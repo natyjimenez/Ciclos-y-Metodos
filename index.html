@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclos y Métodos</title>
+</head>
+<script>
+
+    //Selección número de ejercicio
+    let ejercicios = prompt("Escribe el número de ejercicio");
+
+    if (ejercicios == "1") {
+        ejercicio1();
+    }
+    if (ejercicios == "2") {
+        ejercicio2();
+    }
+    if (ejercicios == "3") {
+        ejercicio3();
+    }
+    if (ejercicios == "4") {
+        ejercicio4();
+    }
+    if (ejercicios == "5") {
+        ejercicio5();
+    }
+
+    // 1-.Solicitar al usuario un número entre 1 al 100. Luego, se deberá imprimir por consola los números
+    //desde el 0 hasta el número que ingresó el usuario.
+    function ejercicio1() {
+        let numero = prompt("Ingrese un número del 1 al 100");
+        for (let i = 0; i <= numero; i++) {
+            console.log(i);
+        }
+    }
+
+    // 2-.Realizarle al usuario la pregunta “¿De qué color es el caballo blanco de Napoleón?”. Si el
+    //usuario responde algo distinto a “blanco”, se le deberá volver a hacer la misma pregunta; de lo
+    //contrario, se le dejará de hacer la pregunta.
+    function ejercicio2() {
+        let caballo = prompt("¿De qué color es el caballo blanco de Napoleón?");
+        let color = "Blanco";
+        caballo.toLowerCase() == color.toLowerCase() ?
+            alert("¡Respuesta correcta!") :
+            ejercicio2();
+    }
+
+    // 3-. En este ejercicio deberá calcular el promedio de notas del usuario. Para ésto, la página web le
+    //debe solicitar el promedio de notas de los ramos de Matemáticas, Física y Ciencias. Luego,
+    //debe indicarle por pantalla el promedio de notas (puede hacer uso de la función alert()). El
+    //promedio de notas mostrado debe estar redondeado a un número entero.
+    function ejercicio3() {
+        let mate = +prompt("Ingrese su promedio de notas de Matemáticas");
+        let fisica = +prompt("Ingrese su promedio de notas de Física");
+        let ciencias = +prompt("Ingrese su promedio de notas de Ciencias");
+        let promedio = (mate + fisica + ciencias) / 3;
+        alert(("Su promedio es ") + (Math.round(promedio)));
+    }
+
+    // 4-. Solicite al usuario escribir el nombre de 3 frutas. Cada fruta que se ingrese se debe ingresar de
+    //manera individual. Cuando ya se hayan ingresado la totalidad de frutas, se deben imprimir todas
+    //por consola, a excepción de la que tenga el nombre de “manzana”
+    function ejercicio4() {
+        let cantFrutas = [1, 2, 3];
+        let newFruit = [];
+        cantFrutas.forEach(() => {
+            let fruta = prompt("Ingrese el nombre de una fruta");
+            newFruit.push(fruta);
+        });
+        newFruit.forEach(f => {
+            if (f !== "manzana") {
+                console.log(f);
+            }
+        });
+    }
+
+    // 5-. Solicite al usuario escribir su nombre. Luego, debe determinar la cantidad de vocales y
+    //consonantes que tiene dicho nombre y mostrarlos por pantalla (utilice alert()).
+    function ejercicio5() {
+        let nombre = prompt("Ingrese su nombre");
+        let vocales = ["a", "e", "i", "o", "u"];
+        let splitName = nombre.split("");
+        let numVocales = 0;
+        let numConsonantes = 0;
+        splitName.forEach(letra => {
+            vocales.includes(letra) ? numVocales++ : numConsonantes++;
+        });
+        console.log(`El número de vocales en su nombre es: ${numVocales}`);
+        console.log(`El número de consonantes en su nombre es : ${numConsonantes}`);
+    }
+
+</script>
+
+<body>
+</body>
+
+</html>
